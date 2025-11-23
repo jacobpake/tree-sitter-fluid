@@ -96,7 +96,7 @@ module.exports = grammar({
 
     let_rec: ($) => seq($.rec_def, $._NL_TODO_INDENTATION, $._block),
 
-    _expr: ($) => choice($.binary_app, $.project, $.dproject, $.app, $._simple),
+    _expr: ($) => choice($.binary_app, $.project, $.app, $._simple),
 
     binary_app: ($) => {
       return choice(
@@ -108,8 +108,11 @@ module.exports = grammar({
         ),
       );
     },
-    project: ($) => seq($._expr, ".", $.var),
-    dproject: ($) => seq($._expr, brackets($._expr)),
+    project: ($) => seq($._expr, choice($.expr_key, seq(".", $.var_key))),
+
+    expr_key: ($) => brackets($._expr),
+    var_key: ($) => $.var,
+
     app: ($) => seq($._expr, parens(sep($._expr, ","))),
 
     _simple: ($) =>
@@ -149,9 +152,7 @@ module.exports = grammar({
       prec.left(seq("lambda", sep1($._pattern, ","), ":", $._expr)),
 
     dict: ($) => braces(commas($.dict_entry)),
-    dict_entry: ($) => seq($._dict_key, ":", $._block),
-    _dict_key: ($) =>
-      choice(brackets(alias($._expr, $.expr_key)), alias($.var, $.var_key)),
+    dict_entry: ($) => seq(choice($.expr_key, $.var_key), ":", $._block),
 
     paragraph: ($) =>
       seq(

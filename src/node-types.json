@@ -28,10 +28,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -116,10 +112,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -222,10 +214,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -340,101 +328,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "list_comp",
-          "named": true
-        },
-        {
-          "type": "list_empty",
-          "named": true
-        },
-        {
-          "type": "list_enum",
-          "named": true
-        },
-        {
-          "type": "list_non_empty",
-          "named": true
-        },
-        {
-          "type": "matrix",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "pair",
-          "named": true
-        },
-        {
-          "type": "paragraph",
-          "named": true
-        },
-        {
-          "type": "project",
-          "named": true
-        },
-        {
-          "type": "str",
-          "named": true
-        },
-        {
-          "type": "var",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "dproject",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "app",
-          "named": true
-        },
-        {
-          "type": "binary_app",
-          "named": true
-        },
-        {
-          "type": "constr",
-          "named": true
-        },
-        {
-          "type": "dict",
-          "named": true
-        },
-        {
-          "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -522,10 +415,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -610,10 +499,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -735,10 +620,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -843,10 +724,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -957,10 +834,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1068,10 +941,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1168,10 +1037,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -1282,10 +1147,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1393,10 +1254,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1481,10 +1338,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -1575,10 +1428,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1663,10 +1512,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -1758,10 +1603,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -1888,10 +1729,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1998,10 +1835,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2105,10 +1938,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -2378,10 +2207,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2485,7 +2310,7 @@
           "named": true
         },
         {
-          "type": "dproject",
+          "type": "expr_key",
           "named": true
         },
         {
@@ -2543,6 +2368,10 @@
         {
           "type": "var",
           "named": true
+        },
+        {
+          "type": "var_key",
+          "named": true
         }
       ]
     }
@@ -2573,10 +2402,6 @@
         },
         {
           "type": "doc",
-          "named": true
-        },
-        {
-          "type": "dproject",
           "named": true
         },
         {
@@ -2742,10 +2567,6 @@
           "named": true
         },
         {
-          "type": "dproject",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2833,6 +2654,21 @@
           "type": "str",
           "named": true
         },
+        {
+          "type": "var",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "var_key",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
           "type": "var",
           "named": true
@@ -2962,10 +2798,6 @@
   },
   {
     "type": "var",
-    "named": true
-  },
-  {
-    "type": "var_key",
     "named": true
   },
   {

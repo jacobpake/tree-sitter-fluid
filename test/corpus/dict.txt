@@ -8,7 +8,7 @@ def f: { ["ab"]: 12 }
 
 {
   d: d,
-  e: e,
+  e: e["ab"],
   e_ab: e.ab,
   f: dict_map((+)(1), e),
   g: dict_difference(e, f)
@@ -16,7 +16,7 @@ def f: { ["ab"]: 12 }
 
 ---
 
-  (source_file
+    (source_file
       (program
         (let
           (var_def
@@ -47,18 +47,26 @@ def f: { ["ab"]: 12 }
                     (integer))))
               (dict
                 (dict_entry
-                  (var_key)
+                  (var_key
+                    (var))
                   (var))
                 (dict_entry
-                  (var_key)
-                  (var))
-                (dict_entry
-                  (var_key)
+                  (var_key
+                    (var))
                   (project
                     (var)
-                    (var)))
+                    (expr_key
+                      (str))))
                 (dict_entry
-                  (var_key)
+                  (var_key
+                    (var))
+                  (project
+                    (var)
+                    (var_key
+                      (var))))
+                (dict_entry
+                  (var_key
+                    (var))
                   (app
                     (var)
                     (app
@@ -66,7 +74,8 @@ def f: { ["ab"]: 12 }
                       (integer))
                     (var)))
                 (dict_entry
-                  (var_key)
+                  (var_key
+                    (var))
                   (app
                     (var)
                     (var)
