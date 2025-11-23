@@ -55,8 +55,12 @@ module.exports = grammar({
 
   conflicts: ($) => [[$.match_as]],
 
+  extras: ($) => [$.comment],
+
   rules: {
     source_file: ($) => $._block,
+
+    comment: ($) => token(seq("#", /.*/)),
 
     var_def: ($) => seq("def", $._pattern, ":", $._block),
     rec_def: ($) =>
