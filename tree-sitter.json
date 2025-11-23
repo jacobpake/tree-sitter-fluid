@@ -4,7 +4,7 @@
       "name": "fluid",
       "camelcase": "Fluid",
       "scope": "source.fluid",
-      "file-types": [".fluid"],
+      "file-types": [".fld"],
       "injection-regex": "^fluid$"
     }
   ],
