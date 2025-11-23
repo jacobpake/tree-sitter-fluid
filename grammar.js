@@ -157,11 +157,12 @@ module.exports = grammar({
     paragraph: ($) =>
       seq(
         `f"""`,
-        repeat(choice($.paragraph_token, $.paragraph_unquote)),
+        repeat(choice($.paragraph_tokens, $.paragraph_unquote)),
         `"""`,
       ),
 
-    paragraph_token: ($) => token(/[^"{]/),
+    paragraph_tokens: ($) => prec.right(repeat1(token(/[^"{ ]/))),
+
     paragraph_unquote: ($) => braces($._expr),
     doc: ($) => prec.left(seq("@doc", parens($._expr), $._expr)),
     pair: ($) => parens($._expr, ",", $._expr),

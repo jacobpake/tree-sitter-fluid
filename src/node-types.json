@@ -1902,7 +1902,7 @@
       "required": false,
       "types": [
         {
-          "type": "paragraph_token",
+          "type": "paragraph_tokens",
           "named": true
         },
         {
@@ -1911,6 +1911,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "paragraph_tokens",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "paragraph_unquote",
@@ -2786,10 +2791,6 @@
   },
   {
     "type": "operator",
-    "named": true
-  },
-  {
-    "type": "paragraph_token",
     "named": true
   },
   {

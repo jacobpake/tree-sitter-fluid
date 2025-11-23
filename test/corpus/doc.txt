@@ -1,0 +1,20 @@
+==================
+Doc
+==================
+
+@doc(f"""This is a {@doc(f"""This is a nested docComment!""") "some string"} docComment!""") False
+
+---
+
+    (source_file
+      (program
+        (doc
+          (paragraph
+            (paragraph_tokens)
+            (paragraph_unquote
+              (doc
+                (paragraph
+                  (paragraph_tokens))
+                (str)))
+            (paragraph_tokens))
+          (constr))))

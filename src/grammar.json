@@ -1436,7 +1436,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "paragraph_token"
+                "name": "paragraph_tokens"
               },
               {
                 "type": "SYMBOL",
@@ -1451,11 +1451,18 @@
         }
       ]
     },
-    "paragraph_token": {
-      "type": "TOKEN",
+    "paragraph_tokens": {
+      "type": "PREC_RIGHT",
+      "value": 0,
       "content": {
-        "type": "PATTERN",
-        "value": "[^\"{]"
+        "type": "REPEAT1",
+        "content": {
+          "type": "TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\"{ ]"
+          }
+        }
       }
     },
     "paragraph_unquote": {
