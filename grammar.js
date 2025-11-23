@@ -100,7 +100,10 @@ module.exports = grammar({
 
     binary_app: ($) => {
       return choice(
-        prec.left(3, seq($._expr, "|", $.var, "|", $._expr)),
+        prec.left(
+          3,
+          seq($._expr, alias(seq("|", $.var, "|"), $.operator), $._expr),
+        ),
         ...operator_table.flatMap(([p, assoc, ops]) =>
           ops.map((op) =>
             prec[assoc](p, seq($._expr, alias(op, $.operator), $._expr)),
