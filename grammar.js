@@ -50,8 +50,6 @@ const operator_table = [
   [0, "left", ["or"]],
 ];
 
-const TODO = (str) => ($) => str;
-
 module.exports = grammar({
   name: "fluid",
 
@@ -91,8 +89,8 @@ module.exports = grammar({
         ),
       );
     },
-    project: TODO("project"),
-    dproject: TODO("dproject"),
+    project: ($) => seq($._expr, ".", $.var),
+    dproject: ($) => seq($._expr, brackets($._expr)),
     app: ($) => seq($._expr, parens(sep($._expr, ","))),
 
     _simple: ($) =>
@@ -101,6 +99,7 @@ module.exports = grammar({
         $.list_empty,
         $.list_non_empty,
         $.list_enum,
+        $.list_comp,
         $.lambda,
         $.dict,
         $.paragraph,
@@ -115,15 +114,24 @@ module.exports = grammar({
         $.integer,
       ),
 
-    matrix: TODO("matrix"),
-    list_empty: TODO("list_empty"),
-    list_non_empty: TODO("list_non_empty"),
-    list_enum: TODO("list-enum"),
-    list_comp: TODO("list-comp"),
-    lambda: TODO("lambda"),
-    dict: TODO("dict"),
-    paragraph: TODO("paragraph"),
-    doc: TODO("doc"),
+    matrix: ($) => seq("[|", $._expr, "for", parens($.var, ",", $.var), "in", $._expr, "|]"),
+    list_empty: ($) => "[]",
+    list_non_empty: ($) => brackets(sep1($._expr, ",")),
+    list_enum: ($) => brackets($._expr, "..", $._expr),
+    list_comp: ($) => brackets($._expr, repeat1($._list_comp_qualifier)),
+    _list_comp_qualifier: ($) => choice($.list_comp_guard, $.list_comp_decl, $.list_comp_gen),
+    list_comp_guard: ($) => seq("if", $._expr),
+    list_comp_decl: ($) => seq("def", $._pattern, ":", $._expr),
+    list_comp_gen: ($) => seq("for", $._pattern, "in", $._expr),
+
+    lambda: ($) => prec.left(seq("lambda", sep1($._pattern, ","), ":", $._expr)),
+    dict: ($) => braces(sep(seq(choice(brackets($._expr), $.var), ":", $._block), ",")),
+
+    paragraph: ($) => seq(`f"""`, repeat(choice($.paragraph_token, $.paragraph_unquote)), `"""`),
+
+    paragraph_token: ($) => token(/[^"{]/),
+    paragraph_unquote: ($) => braces($._expr),
+    doc: ($) => prec.left(seq("@doc", parens($._expr), $._expr)),
     pair: ($) => parens($._expr, ",", $._expr),
 
     _pattern: ($) => choice($.pattern_cons, $._pattern_simple),
