@@ -1,0 +1,13 @@
+==================
+Arithmetic
+==================
+
+1 + 1
+
+---
+
+(source_file
+    (binary_app
+        (integer)
+        (operator)
+        (integer)))

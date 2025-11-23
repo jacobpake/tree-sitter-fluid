@@ -1,12 +1,285 @@
 [
   {
+    "type": "binary_app",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "app",
+          "named": true
+        },
+        {
+          "type": "binary_app",
+          "named": true
+        },
+        {
+          "type": "constr",
+          "named": true
+        },
+        {
+          "type": "dict",
+          "named": true
+        },
+        {
+          "type": "doc",
+          "named": true
+        },
+        {
+          "type": "dproject",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list_empty",
+          "named": true
+        },
+        {
+          "type": "list_enum",
+          "named": true
+        },
+        {
+          "type": "list_non_empty",
+          "named": true
+        },
+        {
+          "type": "matrix",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "project",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "var",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "root": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "app",
+          "named": true
+        },
+        {
+          "type": "binary_app",
+          "named": true
+        },
+        {
+          "type": "constr",
+          "named": true
+        },
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "dict",
+          "named": true
+        },
+        {
+          "type": "doc",
+          "named": true
+        },
+        {
+          "type": "dproject",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "if_else",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list_empty",
+          "named": true
+        },
+        {
+          "type": "list_enum",
+          "named": true
+        },
+        {
+          "type": "list_non_empty",
+          "named": true
+        },
+        {
+          "type": "match_as",
+          "named": true
+        },
+        {
+          "type": "matrix",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "project",
+          "named": true
+        },
+        {
+          "type": "str",
+          "named": true
+        },
+        {
+          "type": "var",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "hello",
+    "type": "(",
     "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "`",
+    "named": false
+  },
+  {
+    "type": "app",
+    "named": true
+  },
+  {
+    "type": "constr",
+    "named": true
+  },
+  {
+    "type": "def",
+    "named": true
+  },
+  {
+    "type": "dict",
+    "named": true
+  },
+  {
+    "type": "doc",
+    "named": true
+  },
+  {
+    "type": "dproject",
+    "named": true
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "if_else",
+    "named": true
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "lambda",
+    "named": true
+  },
+  {
+    "type": "list_empty",
+    "named": true
+  },
+  {
+    "type": "list_enum",
+    "named": true
+  },
+  {
+    "type": "list_non_empty",
+    "named": true
+  },
+  {
+    "type": "match_as",
+    "named": true
+  },
+  {
+    "type": "matrix",
+    "named": true
+  },
+  {
+    "type": "operator",
+    "named": true
+  },
+  {
+    "type": "pair",
+    "named": true
+  },
+  {
+    "type": "paragraph",
+    "named": true
+  },
+  {
+    "type": "project",
+    "named": true
+  },
+  {
+    "type": "str",
+    "named": true
+  },
+  {
+    "type": "var",
+    "named": true
   }
 ]
