@@ -16,7 +16,7 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
 
 ---
 
- (source_file
+    (source_file
       (program
         (let_rec
           (rec_def
@@ -31,15 +31,15 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
                 (var))
               (pattern_list
                 (var))
-              (app
-                (binary_app
-                  (pair
-                    (var)
-                    (var))
-                  (operator)
+              (binary_app
+                (pair
+                  (var)
                   (var))
-                (list_empty)
-                (list_empty)))
+                (operator)
+                (app
+                  (var)
+                  (list_empty)
+                  (list_empty))))
             (let_rec
               (rec_def
                 (var)
@@ -49,17 +49,17 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
                 (pattern_list
                   (var)
                   (var))
-                (app
-                  (binary_app
-                    (pair
-                      (var)
+                (binary_app
+                  (pair
+                    (var)
+                    (var))
+                  (operator)
+                  (app
+                    (var)
+                    (list_non_empty
                       (var))
-                    (operator)
-                    (var))
-                  (list_non_empty
-                    (var))
-                  (list_non_empty
-                    (var))))
+                    (list_non_empty
+                      (var)))))
               (let_rec
                 (rec_def
                   (var)
@@ -71,19 +71,19 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
                     (var)
                     (var)
                     (var))
-                  (app
-                    (binary_app
-                      (pair
+                  (binary_app
+                    (pair
+                      (var)
+                      (var))
+                    (operator)
+                    (app
+                      (var)
+                      (list_non_empty
                         (var)
                         (var))
-                      (operator)
-                      (var))
-                    (list_non_empty
-                      (var)
-                      (var))
-                    (list_non_empty
-                      (var)
-                      (var))))
+                      (list_non_empty
+                        (var)
+                        (var)))))
                 (let_rec
                   (rec_def
                     (var)
@@ -105,18 +105,13 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
                           (var))
                         (var))
                       (var))
-                    (app
+                    (binary_app
                       (binary_app
                         (binary_app
                           (binary_app
-                            (binary_app
-                              (pair
-                                (var)
-                                (var))
-                              (operator)
-                              (pair
-                                (var)
-                                (var)))
+                            (pair
+                              (var)
+                              (var))
                             (operator)
                             (pair
                               (var)
@@ -126,9 +121,14 @@ length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
                             (var)
                             (var)))
                         (operator)
-                        (var))
-                      (var)
-                      (var)))
+                        (pair
+                          (var)
+                          (var)))
+                      (operator)
+                      (app
+                        (var)
+                        (var)
+                        (var))))
                   (app
                     (var)
                     (app

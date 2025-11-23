@@ -111,12 +111,13 @@ module.exports = grammar({
 
     _custom_infix: ($) => seq("|", $.var, "|"),
 
-    project: ($) => seq($._expr, choice($.expr_key, seq(".", $.var_key))),
+    project: ($) =>
+      prec(10, seq($._expr, choice($.expr_key, seq(".", $.var_key)))),
 
     expr_key: ($) => brackets($._expr),
     var_key: ($) => $.var,
 
-    app: ($) => seq($._expr, parens(sep($._expr, ","))),
+    app: ($) => prec(10, seq($._expr, parens(sep($._expr, ",")))),
 
     _simple: ($) =>
       choice(

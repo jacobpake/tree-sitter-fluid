@@ -14,7 +14,7 @@ merge
 
 ---
 
-    (source_file
+ (source_file
       (program
         (let_rec
           (rec_def
@@ -50,18 +50,18 @@ merge
                     (var)
                     (operator)
                     (var))
-                  (app
-                    (binary_app
-                      (var)
-                      (operator)
-                      (var))
+                  (binary_app
                     (var)
-                    (var))
-                  (app
-                    (binary_app
+                    (operator)
+                    (app
                       (var)
-                      (operator)
-                      (var))
+                      (var)
+                      (var)))
+                  (binary_app
                     (var)
-                    (var))))))
+                    (operator)
+                    (app
+                      (var)
+                      (var)
+                      (var)))))))
           (var))))
