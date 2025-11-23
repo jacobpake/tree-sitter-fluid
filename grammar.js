@@ -59,7 +59,8 @@ module.exports = grammar({
     source_file: ($) => $._block,
 
     var_def: ($) => seq("def", $._pattern, ":", $._block),
-    rec_def: ($) => seq("def", $.var, parens(sep($._pattern, ",")), ":", $._block),
+    rec_def: ($) =>
+      seq("def", $.var, parens(sep($._pattern, ",")), ":", $._block),
 
     _block: ($) => choice($.match_as, $.if_else, $.let, $.let_rec, $._expr),
 
@@ -73,7 +74,7 @@ module.exports = grammar({
       ),
     match_case: ($) => seq("case", $._pattern, ":", $._block),
 
-    if_else: ($) => seq("if", $._expr, ":", $._block, "else:", $._block),
+    if_else: ($) => seq("if", $._expr, ":", $._block, "else", ":", $._block),
 
     let: ($) => seq(repeat1($.var_def), $._NL_TODO_INDENTATION, $._block),
 
@@ -85,7 +86,9 @@ module.exports = grammar({
       return choice(
         prec.left(3, seq($._expr, "|", $.var, "|", $._expr)),
         ...operator_table.flatMap(([p, assoc, ops]) =>
-          ops.map((op) => prec[assoc](p, seq($._expr, alias(op, $.operator), $._expr))),
+          ops.map((op) =>
+            prec[assoc](p, seq($._expr, alias(op, $.operator), $._expr)),
+          ),
         ),
       );
     },
@@ -114,20 +117,29 @@ module.exports = grammar({
         $.integer,
       ),
 
-    matrix: ($) => seq("[|", $._expr, "for", parens($.var, ",", $.var), "in", $._expr, "|]"),
+    matrix: ($) =>
+      seq("[|", $._expr, "for", parens($.var, ",", $.var), "in", $._expr, "|]"),
     list_empty: ($) => "[]",
     list_non_empty: ($) => brackets(sep1($._expr, ",")),
     list_enum: ($) => brackets($._expr, "..", $._expr),
     list_comp: ($) => brackets($._expr, repeat1($._list_comp_qualifier)),
-    _list_comp_qualifier: ($) => choice($.list_comp_guard, $.list_comp_decl, $.list_comp_gen),
+    _list_comp_qualifier: ($) =>
+      choice($.list_comp_guard, $.list_comp_decl, $.list_comp_gen),
     list_comp_guard: ($) => seq("if", $._expr),
     list_comp_decl: ($) => seq("def", $._pattern, ":", $._expr),
     list_comp_gen: ($) => seq("for", $._pattern, "in", $._expr),
 
-    lambda: ($) => prec.left(seq("lambda", sep1($._pattern, ","), ":", $._expr)),
-    dict: ($) => braces(sep(seq(choice(brackets($._expr), $.var), ":", $._block), ",")),
+    lambda: ($) =>
+      prec.left(seq("lambda", sep1($._pattern, ","), ":", $._expr)),
+    dict: ($) =>
+      braces(sep(seq(choice(brackets($._expr), $.var), ":", $._block), ",")),
 
-    paragraph: ($) => seq(`f"""`, repeat(choice($.paragraph_token, $.paragraph_unquote)), `"""`),
+    paragraph: ($) =>
+      seq(
+        `f"""`,
+        repeat(choice($.paragraph_token, $.paragraph_unquote)),
+        `"""`,
+      ),
 
     paragraph_token: ($) => token(/[^"{]/),
     paragraph_unquote: ($) => braces($._expr),
@@ -148,7 +160,8 @@ module.exports = grammar({
         parens($._pattern),
       ),
 
-    pattern_constr: ($) => seq($.constr, optional(parens(sep($._pattern_simple, ",")))),
+    pattern_constr: ($) =>
+      seq($.constr, optional(parens(sep($._pattern_simple, ",")))),
     pattern_record: ($) => braces(sep(seq($.var, ":", $._pattern), ",")),
     pattern_list: ($) => brackets(sep($._pattern, ",")),
     pattern_pair: ($) => parens($._pattern, ",", $._pattern),
