@@ -55,7 +55,7 @@ module.exports = grammar({
 
   conflicts: ($) => [[$.match_as]],
 
-  extras: ($) => [$.comment],
+  extras: ($) => [$.comment, /\s|\\n/],
 
   rules: {
     source_file: ($) => $._block,

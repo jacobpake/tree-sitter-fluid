@@ -6,6 +6,22 @@
       "type": "SYMBOL",
       "name": "_block"
     },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
+    },
     "var_def": {
       "type": "SEQ",
       "members": [
@@ -207,7 +223,11 @@
         },
         {
           "type": "STRING",
-          "value": "else:"
+          "value": "else"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
         },
         {
           "type": "SYMBOL",
@@ -1797,8 +1817,12 @@
   },
   "extras": [
     {
+      "type": "SYMBOL",
+      "name": "comment"
+    },
+    {
       "type": "PATTERN",
-      "value": "\\s"
+      "value": "\\s|\\\\n"
     }
   ],
   "conflicts": [
