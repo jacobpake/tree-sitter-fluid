@@ -11,18 +11,19 @@ x + y
 ---
 
     (source_file
-      (let
-        (var_def
-          (var)
-          (integer))
+      (program
         (let
           (var_def
             (var)
             (integer))
-          (binary_app
-            (var)
-            (operator)
-            (var)))))
+          (let
+            (var_def
+              (var)
+              (integer))
+            (binary_app
+              (var)
+              (operator)
+              (var))))))
 
 ==================
 Let Rec
@@ -35,16 +36,17 @@ f
 ---
 
     (source_file
-      (let_rec
-        (rec_def
-          (var)
-          (var)
-          (var)
-          (binary_app
+      (program
+        (let_rec
+          (rec_def
             (var)
-            (operator)
-            (var)))
-        (var)))
+            (var)
+            (var)
+            (binary_app
+              (var)
+              (operator)
+              (var)))
+          (var))))
 
 ==================
 Let Rec App
@@ -57,16 +59,17 @@ f(1, 4)
 ---
 
     (source_file
-      (let_rec
-        (rec_def
-          (var)
-          (var)
-          (var)
-          (binary_app
+      (program
+        (let_rec
+          (rec_def
             (var)
-            (operator)
-            (var)))
-        (app
-          (var)
-          (integer)
-          (integer))))
+            (var)
+            (var)
+            (binary_app
+              (var)
+              (operator)
+              (var)))
+          (app
+            (var)
+            (integer)
+            (integer)))))

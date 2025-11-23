@@ -15,52 +15,53 @@ merge
 ---
 
     (source_file
-      (let_rec
-        (rec_def
-          (var)
-          (var)
-          (var)
-          (match_as
-            (pair
-              (var)
-              (var))
-            (match_case
-              (pattern_pair
-                (pattern_list)
+      (program
+        (let_rec
+          (rec_def
+            (var)
+            (var)
+            (var)
+            (match_as
+              (pair
+                (var)
                 (var))
-              (var))
-            (match_case
-              (pattern_pair
-                (pattern_cons
-                  (var)
+              (match_case
+                (pattern_pair
+                  (pattern_list)
                   (var))
-                (pattern_list))
-              (var))
-            (match_case
-              (pattern_pair
-                (pattern_cons
-                  (var)
-                  (var))
-                (pattern_cons
-                  (var)
-                  (var)))
-              (if_else
-                (binary_app
-                  (var)
-                  (operator)
-                  (var))
-                (app
+                (var))
+              (match_case
+                (pattern_pair
+                  (pattern_cons
+                    (var)
+                    (var))
+                  (pattern_list))
+                (var))
+              (match_case
+                (pattern_pair
+                  (pattern_cons
+                    (var)
+                    (var))
+                  (pattern_cons
+                    (var)
+                    (var)))
+                (if_else
                   (binary_app
                     (var)
                     (operator)
                     (var))
-                  (var)
-                  (var))
-                (app
-                  (binary_app
+                  (app
+                    (binary_app
+                      (var)
+                      (operator)
+                      (var))
                     (var)
-                    (operator)
                     (var))
-                  (var)
-                  (var))))))
-        (var)))
+                  (app
+                    (binary_app
+                      (var)
+                      (operator)
+                      (var))
+                    (var)
+                    (var))))))
+          (var))))

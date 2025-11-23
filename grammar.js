@@ -20,6 +20,11 @@ const sep1 = (rule, separator) => seq(rule, repeat(seq(separator, rule)));
 const sep = (rule, separator) => optional(sep1(rule, separator));
 
 /**
+ * @param {RuleOrLiteral} rule
+ */
+const commas = (rule) => optional(sep1(rule, ","));
+
+/**
  * @param {RuleOrLiteral[]} rules
  */
 const parens = (...rules) => seq("(", ...rules, ")");
@@ -53,14 +58,21 @@ const operator_table = [
 module.exports = grammar({
   name: "fluid",
 
-  conflicts: ($) => [[$.match_as]],
+  conflicts: ($) => [[$.match_as], [$.module, $.let], [$.module, $.let_rec]],
 
   extras: ($) => [$.comment, /\s|\\n/],
 
   rules: {
-    source_file: ($) => $._block,
+    source_file: ($) =>
+      seq(alias(repeat($.import), $.top_level), choice($.program, $.module)),
+
+    import: ($) => seq("import", sep1($.var, ".")),
 
     comment: ($) => token(seq("#", /.*/)),
+
+    program: ($) => $._block,
+    module: ($) =>
+      repeat1(seq(choice($.var_def, $.rec_def), $._NL_TODO_INDENTATION)),
 
     var_def: ($) => seq("def", $._pattern, ":", $._block),
     rec_def: ($) =>
@@ -80,9 +92,9 @@ module.exports = grammar({
 
     if_else: ($) => seq("if", $._expr, ":", $._block, "else", ":", $._block),
 
-    let: ($) => seq(repeat1($.var_def), $._NL_TODO_INDENTATION, $._block),
+    let: ($) => seq($.var_def, $._NL_TODO_INDENTATION, $._block),
 
-    let_rec: ($) => seq(repeat1($.rec_def), $._NL_TODO_INDENTATION, $._block),
+    let_rec: ($) => seq($.rec_def, $._NL_TODO_INDENTATION, $._block),
 
     _expr: ($) => choice($.binary_app, $.project, $.dproject, $.app, $._simple),
 
@@ -135,8 +147,11 @@ module.exports = grammar({
 
     lambda: ($) =>
       prec.left(seq("lambda", sep1($._pattern, ","), ":", $._expr)),
-    dict: ($) =>
-      braces(sep(seq(choice(brackets($._expr), $.var), ":", $._block), ",")),
+
+    dict: ($) => braces(commas($.dict_entry)),
+    dict_entry: ($) => seq($._dict_key, ":", $._block),
+    _dict_key: ($) =>
+      choice(brackets(alias($._expr, $.expr_key)), alias($.var, $.var_key)),
 
     paragraph: ($) =>
       seq(

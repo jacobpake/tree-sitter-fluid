@@ -7,7 +7,8 @@ Arithmetic
 ---
 
     (source_file
-      (binary_app
-        (integer)
-        (operator)
-        (integer)))
+      (program
+        (binary_app
+          (integer)
+          (operator)
+          (integer))))

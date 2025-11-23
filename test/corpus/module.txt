@@ -1,0 +1,22 @@
+==================
+Module
+==================
+
+import a
+import x.y
+
+def v: 42
+
+---
+
+    (source_file
+      (top_level
+        (import
+          (var))
+        (import
+          (var)
+          (var)))
+      (module
+        (var_def
+          (var)
+          (integer))))

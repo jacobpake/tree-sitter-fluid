@@ -1,0 +1,73 @@
+==================
+Dicts
+==================
+
+def d: {}
+def e: { ["a"]: 5, ["a" ++ "b"]: 6 }
+def f: { ["ab"]: 12 }
+
+{
+  d: d,
+  e: e,
+  e_ab: e.ab,
+  f: dict_map((+)(1), e),
+  g: dict_difference(e, f)
+}
+
+---
+
+  (source_file
+      (program
+        (let
+          (var_def
+            (var)
+            (dict))
+          (let
+            (var_def
+              (var)
+              (dict
+                (dict_entry
+                  (expr_key
+                    (str))
+                  (integer))
+                (dict_entry
+                  (expr_key
+                    (binary_app
+                      (str)
+                      (operator)
+                      (str)))
+                  (integer))))
+            (let
+              (var_def
+                (var)
+                (dict
+                  (dict_entry
+                    (expr_key
+                      (str))
+                    (integer))))
+              (dict
+                (dict_entry
+                  (var_key)
+                  (var))
+                (dict_entry
+                  (var_key)
+                  (var))
+                (dict_entry
+                  (var_key)
+                  (project
+                    (var)
+                    (var)))
+                (dict_entry
+                  (var_key)
+                  (app
+                    (var)
+                    (app
+                      (operator)
+                      (integer))
+                    (var)))
+                (dict_entry
+                  (var_key)
+                  (app
+                    (var)
+                    (var)
+                    (var)))))))))
