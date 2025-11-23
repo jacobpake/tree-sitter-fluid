@@ -172,7 +172,7 @@ module.exports = grammar({
 
     _pattern: ($) => choice($.pattern_cons, $._pattern_simple),
 
-    pattern_cons: ($) => seq($._pattern_simple, ":|", $._pattern_simple),
+    pattern_cons: ($) => prec.left(seq($._pattern, ":|", $._pattern)),
 
     _pattern_simple: ($) =>
       choice(

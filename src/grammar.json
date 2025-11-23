@@ -1569,21 +1569,25 @@
       ]
     },
     "pattern_cons": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_pattern_simple"
-        },
-        {
-          "type": "STRING",
-          "value": ":|"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_pattern_simple"
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_pattern"
+          },
+          {
+            "type": "STRING",
+            "value": ":|"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_pattern"
+          }
+        ]
+      }
     },
     "_pattern_simple": {
       "type": "CHOICE",

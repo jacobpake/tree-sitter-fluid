@@ -1,0 +1,145 @@
+==================
+Zip
+==================
+
+def zip3([], []): []
+def zip3([x1], [y1]):
+  (x1, y1) :| zip3([], [])
+def zip3([x1, x2], [y1, y2]):
+  (x1, y1) :| zip3([x2], [y2])
+def zip3([x1, x2, x3], [y1, y2, y3]):
+  (x1, y1) :| zip3([x2, x3], [y2, y3])
+def zip3(x1 :| x2 :| x3 :| x4 :| xs, y1 :| y2 :| y3 :| y4 :| ys):
+  (x1, y1) :| (x2, y2) :| (x3, y3) :| (x4, y4) :| zip3(xs, ys)
+
+length(zip3([3, 4, 5, 6], [5, 6, 7, 8]))
+
+---
+
+ (source_file
+      (program
+        (let_rec
+          (rec_def
+            (var)
+            (pattern_list)
+            (pattern_list)
+            (list_empty))
+          (let_rec
+            (rec_def
+              (var)
+              (pattern_list
+                (var))
+              (pattern_list
+                (var))
+              (app
+                (binary_app
+                  (pair
+                    (var)
+                    (var))
+                  (operator)
+                  (var))
+                (list_empty)
+                (list_empty)))
+            (let_rec
+              (rec_def
+                (var)
+                (pattern_list
+                  (var)
+                  (var))
+                (pattern_list
+                  (var)
+                  (var))
+                (app
+                  (binary_app
+                    (pair
+                      (var)
+                      (var))
+                    (operator)
+                    (var))
+                  (list_non_empty
+                    (var))
+                  (list_non_empty
+                    (var))))
+              (let_rec
+                (rec_def
+                  (var)
+                  (pattern_list
+                    (var)
+                    (var)
+                    (var))
+                  (pattern_list
+                    (var)
+                    (var)
+                    (var))
+                  (app
+                    (binary_app
+                      (pair
+                        (var)
+                        (var))
+                      (operator)
+                      (var))
+                    (list_non_empty
+                      (var)
+                      (var))
+                    (list_non_empty
+                      (var)
+                      (var))))
+                (let_rec
+                  (rec_def
+                    (var)
+                    (pattern_cons
+                      (pattern_cons
+                        (pattern_cons
+                          (pattern_cons
+                            (var)
+                            (var))
+                          (var))
+                        (var))
+                      (var))
+                    (pattern_cons
+                      (pattern_cons
+                        (pattern_cons
+                          (pattern_cons
+                            (var)
+                            (var))
+                          (var))
+                        (var))
+                      (var))
+                    (app
+                      (binary_app
+                        (binary_app
+                          (binary_app
+                            (binary_app
+                              (pair
+                                (var)
+                                (var))
+                              (operator)
+                              (pair
+                                (var)
+                                (var)))
+                            (operator)
+                            (pair
+                              (var)
+                              (var)))
+                          (operator)
+                          (pair
+                            (var)
+                            (var)))
+                        (operator)
+                        (var))
+                      (var)
+                      (var)))
+                  (app
+                    (var)
+                    (app
+                      (var)
+                      (list_non_empty
+                        (integer)
+                        (integer)
+                        (integer)
+                        (integer))
+                      (list_non_empty
+                        (integer)
+                        (integer)
+                        (integer)
+                        (integer)))))))))))
