@@ -393,16 +393,13 @@
                 "name": "_expr"
               },
               {
-                "type": "STRING",
-                "value": "|"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "var"
-              },
-              {
-                "type": "STRING",
-                "value": "|"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_custom_infix"
+                },
+                "named": true,
+                "value": "operator"
               },
               {
                 "type": "SYMBOL",
@@ -878,6 +875,23 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "_custom_infix": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "|"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "var"
+        },
+        {
+          "type": "STRING",
+          "value": "|"
         }
       ]
     },
