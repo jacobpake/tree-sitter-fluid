@@ -1,0 +1,33 @@
+{
+  "grammars": [
+    {
+      "name": "fluid",
+      "camelcase": "Fluid",
+      "scope": "source.fluid",
+      "file-types": [".fluid"],
+      "injection-regex": "^fluid$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Fluid grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Jacob Pake",
+        "email": "github@pake.dev"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/jacobpake/tree-sitter-fluid"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
