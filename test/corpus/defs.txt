@@ -1,0 +1,72 @@
+==================
+Let
+==================
+
+def x: 1
+
+def y: 2
+
+x + y
+
+---
+
+    (source_file
+      (let
+        (var_def
+          (var)
+          (integer))
+        (let
+          (var_def
+            (var)
+            (integer))
+          (binary_app
+            (var)
+            (operator)
+            (var)))))
+
+==================
+Let Rec
+==================
+
+def f(x, y): x + y
+
+f
+
+---
+
+    (source_file
+      (let_rec
+        (rec_def
+          (var)
+          (var)
+          (var)
+          (binary_app
+            (var)
+            (operator)
+            (var)))
+        (var)))
+
+==================
+Let Rec App
+==================
+
+def f(x, y): x + y
+
+f(1, 4)
+
+---
+
+    (source_file
+      (let_rec
+        (rec_def
+          (var)
+          (var)
+          (var)
+          (binary_app
+            (var)
+            (operator)
+            (var)))
+        (app
+          (var)
+          (integer)
+          (integer))))

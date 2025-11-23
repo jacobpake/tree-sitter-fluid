@@ -1,0 +1,66 @@
+==================
+Match
+==================
+
+def merge(xs, ys):
+  match (xs, ys):
+    case ([], _): ys
+    case (x :| xs_, []): xs
+    case (x :| xs_, y :| ys_):
+      if x < y: x :| merge(xs_, ys)
+      else: y :| merge(xs, ys_)
+
+merge
+
+---
+
+    (source_file
+      (let_rec
+        (rec_def
+          (var)
+          (var)
+          (var)
+          (match_as
+            (pair
+              (var)
+              (var))
+            (match_case
+              (pattern_pair
+                (pattern_list)
+                (var))
+              (var))
+            (match_case
+              (pattern_pair
+                (pattern_cons
+                  (var)
+                  (var))
+                (pattern_list))
+              (var))
+            (match_case
+              (pattern_pair
+                (pattern_cons
+                  (var)
+                  (var))
+                (pattern_cons
+                  (var)
+                  (var)))
+              (if_else
+                (binary_app
+                  (var)
+                  (operator)
+                  (var))
+                (app
+                  (binary_app
+                    (var)
+                    (operator)
+                    (var))
+                  (var)
+                  (var))
+                (app
+                  (binary_app
+                    (var)
+                    (operator)
+                    (var))
+                  (var)
+                  (var))))))
+        (var)))
